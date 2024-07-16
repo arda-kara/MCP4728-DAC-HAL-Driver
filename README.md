@@ -101,5 +101,3 @@ mcp4728_generalCall(&hi2c1, MCP4728_GENERAL_SOFTWARE_UPDATE);
 
 
 ---
-
-This README provides an overview and instructions for using the MCP4728 DAC HAL driver. For more detailed information, please refer to the source code and comments within the provided files.
