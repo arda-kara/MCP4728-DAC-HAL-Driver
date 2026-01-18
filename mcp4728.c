@@ -51,7 +51,7 @@ HAL_StatusTypeDef mcp4728_gainSelect(I2C_HandleTypeDef *i2cHandler, ChannelConfi
  */
 HAL_StatusTypeDef mcp4728_writePwrDownSelect(I2C_HandleTypeDef *i2cHandler, uint8_t power_modes) {
     uint8_t buf[2];
-    buf[0] = MCP4728_PWRDWN_WRITE | ((power_modes & 0xF0) >> 4);
+    buf[0] = MCP4728_PWRDOWN_WRITE | ((power_modes & 0xF0) >> 4);
     buf[1] = (power_modes & 0x0F) << 4;
     // Transmit the two bytes containing the power down mode selection
     return HAL_I2C_Master_Transmit(i2cHandler, MCP4728_BASE_ADDR, buf, sizeof(buf), HAL_MAX_DELAY);
@@ -191,3 +191,4 @@ HAL_StatusTypeDef mcp4728_sequentialWrite(I2C_HandleTypeDef *i2cHandler, Channel
 
     return mcp4728_generalCall(i2cHandler, MCP4728_GENERAL_SOFTWARE_UPDATE);
 }
+
